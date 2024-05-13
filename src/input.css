@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 300 to 800
+
+.open-sans-<uniquifier> {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+} */
+
+
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+.inter-<uniquifier> {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+} */
+:root {
+  --swiper-pagination-color: #FF8C92;
+  --swiper-pagination-bullet-inactive-color: #000;
+}
+.open-sans-regular {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.open-sans-semibold {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.open-sans-bold {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.open-sans-extrabold {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.inter-light {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+}
+
+.inter-light-italic {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: italic;
+  font-variation-settings:
+    "slnt" 0;
+}
+
+.inter-regular {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+}
+
+.inter-medium {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+}
+
+.inter-medium-italic {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: italic;
+  font-variation-settings:
+    "slnt" 0;
+}
+
+.yellowtail-regular {
+  font-family: "Yellowtail", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+.banner {
+  background: url(../public/images/banner/banner.png) no-repeat center center;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    background-position: left center;
+    background-size: cover;
+  }
+}
+
+@keyframes blink {
+  0% {opacity: 1;}
+  40% {opacity: 1;}
+  60% {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+.input-cursor {
+  animation: blink .6s linear infinite alternate;
+}
+
+/* For the about me section */
+section span {
+  text-wrap: wrap;
+}
+
+.work-1 {
+  background-color: #ECE6E7;
+  background-image: url(../public/images/bubblyCircles/babyRose.png) , url(../public/images/bubblyCircles/babyBrown.png);
+  background-position: top right, center center;
+  background-repeat: no-repeat, no-repeat;
+}
+/* .curvy-1 { */
+  /* background-color: burlywood;
+  width: 300px;
+  height: 300px;
+  border-radius: 150px 129px 145px 112px/ 143px 134px 120px 149px;
+} */
+
+.curvySvg-1 {
+  background: url(../public/images/works/breastCancer.jpg) no-repeat;
+  background-size: cover;
+}
+
+div.curvyCircle {
+  width: 450px;
+  height: 300px;
+  border-radius: 45% 60% 50% 95%/ 55% 85% 70% 100%;
+  background: linear-gradient(30deg, #F3EAEB, #FFF3F5);
+}
+div.curvyCircle::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 450px;
+  height: 300px;
+  background-image:  url(../public/images/peopleSay/curledLine0.5x.png);
+  background-position: center center;
+  background-size: 65%;
+  background-repeat: no-repeat;
+}
+div.curvyCircle::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  width: 450px;
+  height: 300px;
+  background-image:  url(../public/images/peopleSay/whiteBlobXl.png), url(../public/images/peopleSay/roseBlobXl.png), url(../public/images/peopleSay/blackBlobXl.png), url(../public/images/peopleSay/whiteBlobSm.png), url(../public/images/peopleSay/blackBlobSm.png);
+  background-position: 6% 36%, 50% 14%, 92% 35%, 86% 42%, 48% 85%;
+  background-repeat: no-repeat;
+}
+
+/* For the swiper */
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 20px;
+}
