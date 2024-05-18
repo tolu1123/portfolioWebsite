@@ -39,6 +39,15 @@
     "wdth" 100;
 }
 
+.open-sans-medium {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
 .open-sans-semibold {
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
@@ -142,10 +151,7 @@
   animation: blink .6s linear infinite alternate;
 }
 
-/* For the about me section */
-section span {
-  text-wrap: wrap;
-}
+
 
 .work-1 {
   background-color: #ECE6E7;
@@ -165,6 +171,71 @@ section span {
   background-size: cover;
 }
 
+@media (width <= 320px) {
+  div.curvyCircle {
+    width: 270px;
+    height: 180px;
+    border-radius: 45% 60% 50% 95%/ 55% 85% 70% 100%;
+    background: linear-gradient(30deg, #F3EAEB, #FFF3F5);
+  }
+  div.curvyCircle::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 270px;
+    height: 180px;
+    background-image:  url(../public/images/peopleSay/curledLine0.5x.png);
+    background-position: center center;
+    background-size: 65%;
+    background-repeat: no-repeat;
+  }
+  div.curvyCircle::after {
+    content: "";
+    position: absolute;
+    z-index: 3;
+    width: 270px;
+    height: 180px;
+    background-image:  url(../public/images/peopleSay/whiteBlobXl.png), url(../public/images/peopleSay/roseBlobXl.png), url(../public/images/peopleSay/blackBlobXl.png), url(../public/images/peopleSay/whiteBlobSm.png), url(../public/images/peopleSay/blackBlobSm.png);
+    background-position: 6% 36%, 50% 14%, 92% 35%, 86% 42%, 48% 85%;
+    background-size: 5%;
+    background-repeat: no-repeat;
+  }
+  
+}
+
+@media (321px <= width < 640px) {
+  div.curvyCircle {
+    width: 300px;
+    height: 200px;
+    border-radius: 45% 60% 50% 95%/ 55% 85% 70% 100%;
+    background: linear-gradient(30deg, #F3EAEB, #FFF3F5);
+  }
+  div.curvyCircle::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 300px;
+    height: 200px;
+    background-image:  url(../public/images/peopleSay/curledLine0.5x.png);
+    background-position: center center;
+    background-size: 65%;
+    background-repeat: no-repeat;
+  }
+  div.curvyCircle::after {
+    content: "";
+    position: absolute;
+    z-index: 3;
+    width: 300px;
+    height: 200px;
+    background-image:  url(../public/images/peopleSay/whiteBlobXl.png), url(../public/images/peopleSay/roseBlobXl.png), url(../public/images/peopleSay/blackBlobXl.png), url(../public/images/peopleSay/whiteBlobSm.png), url(../public/images/peopleSay/blackBlobSm.png);
+    background-position: 6% 36%, 50% 14%, 92% 35%, 86% 42%, 48% 85%;
+    background-size: 5%;
+    background-repeat: no-repeat;
+  }
+  
+}
+
+@media (width >= 640px){
 div.curvyCircle {
   width: 450px;
   height: 300px;
@@ -192,9 +263,65 @@ div.curvyCircle::after {
   background-position: 6% 36%, 50% 14%, 92% 35%, 86% 42%, 48% 85%;
   background-repeat: no-repeat;
 }
+}
+
 
 /* For the swiper */
+.swiper {
+  display: flex !important;
+  margin: 0 !important;
+}
 .swiper-pagination {
   position: relative !important;
   margin-top: 20px;
+}
+
+/* For the skills section */
+.skills-container{
+  background-image: url(../public/images/professionalSkills/pattern1.png), url(../public/images/professionalSkills/pattern2.png);
+  background-position: right top, left bottom;
+  background-size: 25%, 25%;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.skills-container::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url(../public/images/logo/excel.svg), url(../public/images/logo/MongoDB.svg), url(../public/images/logo/python.svg),  url(../public/images/logo/R.svg),  url(../public/images/logo/tensorflow.svg),  url(../public/images/logo/flask.svg);
+  background-position: 2% 2%, 15% 86%, 35% 95%, 75% 18%, 50% 50%, 90% 90%;
+  background-size: 86px 86px,100px 100px,40px 49px,38px 38px,45px 45px,43px 43px;
+  background-repeat: no-repeat;
+}
+@media (1023px >= width >= 640px) {
+  .skills-container::before{
+    background-position: 10% 8%, 2% 45%, 15% 80%, 95% 10%, 95% 50%, 85% 95%;
+    background-size: 88px 76px,80px 80px,40px 52px,40px 40px,50px 50px,45px 45px;
+  }
+}
+@media (width > 1024px) {
+  .skills-container::before {
+    background-position: 20% 20%, 2% 45%, 15% 80%, 95% 10%, 95% 50%, 73% 85%;
+    background-size: 96px 80px,100px 100px,45px 55px,40px 40px,55px 55px,50px 50px;
+  }
+}
+
+@media (width < 640px) {
+  .skills-container {
+    background-size: 70%, 70%;
+  }
+}
+
+.ml-role {
+  background: url(../public/images/roles/pattern1.png) no-repeat top left;
+  background-size: 140px 98.7px;
+}
+
+.engr-role {
+  background: url(../public/images/roles/pattern2.png) no-repeat top left;
+  background-size: 140px 98.7px;
 }

@@ -5,6 +5,8 @@ import logo from '../../public/images/logo/logo4x.png'
 import msgIcon from '../../public/images/logo/chat3x.png'
 import heroImg from '../../public/images/banner/heroImg.png'
 
+import cv from '../../public/docs/Ridwan_Amokun_CV.pdf'
+
 
 
 
@@ -210,23 +212,30 @@ export default function Banner() {
                     </p>
                     <div className="buttons flex flex-row gap-6 mb-4">
 
-                        <button 
-                        type="button"
-                        className="bg-darkGreen text-white inter-medium text-base leading-[160%] rounded-full px-7 py-2 my-2"
+                        <a 
+                        href="#hireMe"
                         >
-                            Hire me
-                        </button>
-                        <button 
-                        type="button"
-                        className="bg-white text-darkGreen inter-medium text-base leading-[160%] rounded-full px-7 py-2"
-                        >
-                            Download Resume
-                        </button>
+                            <button 
+                            type="button"
+                            className="bg-darkGreen text-white inter-medium text-base leading-[160%] rounded-full px-7 py-2 shadow-sm shadow-darkGreen transition-all duration-150 ease-linear hover:bg-white hover:text-darkGreen"
+                            >
+                                Hire me
+                            </button>
+                        </a>
+
+                        <a href={cv} download>
+                            <button 
+                            type="button"
+                            className="bg-white text-darkGreen inter-medium text-base leading-[160%] rounded-full px-7 py-2 shadow-sm shadow-darkGreen transition-all duration-150 ease-linear hover:bg-darkGreen hover:text-white"
+                            >
+                                Download Resume
+                            </button>
+                        </a>
                     </div>
                 </section>
 
                 {/* Section for the hero image */}
-                <section className="flex justify-center w-full lg:w-1/2">
+                <section className="flex justify-center w-full lg:w-1/2 mt-12 sm:mt-0">
                     <img 
                     src={heroImg} 
                     alt="Hero Image" 

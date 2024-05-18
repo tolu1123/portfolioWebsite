@@ -1,7 +1,7 @@
 import React from "react";
 
 import engineerDesign from '../../public/images/homepage/engineerDesign.png'
-import Code from './pyCode.jsx'
+import PyCode from './PyCode.jsx'
 import squiggly from '../../public/images/homepage/squiggly.png' 
 
 export default function About() {
@@ -47,11 +47,11 @@ export default function About() {
 
                     {/* This is the first project */}
                     <div
-                    className="code flex flex-col justify-center bg-highlightGreen xl:w-1/2 rounded-2xl px-8 pt-10 pb-5"
+                    className="code flex flex-col justify-center bg-highlightGreen sm:w-1/2 md:w-full xl:w-1/2 rounded-2xl px-8 pt-10 pb-5"
                     >
                         <div className="flex flex-grow items-center whitespace-pre-wrap text-xs">
                             {/* This is the code */}
-                            <Code />
+                            <PyCode />
                         </div>
 
                         <div className="text-slateBlue self-start mt-5">
@@ -75,7 +75,7 @@ export default function About() {
 
                     {/* This is the second project */}
                     <div
-                    className="engineer flex flex-col justify-center bg-highlightBrown rounded-2xl xl:w-1/2 px-10 pt-10 pb-5"
+                    className="engineer flex flex-col justify-center bg-highlightBrown rounded-2xl sm:w-1/2 md:w-full xl:w-1/2 px-10 pt-10 pb-5"
                     >
                         <div className="mb-auto flex flex-grow items-center">
                             <img 
