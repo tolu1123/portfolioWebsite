@@ -11,8 +11,8 @@ import {
 
 // Import our router pages
 import {Index} from './routes/index'
-import {Error} from './routes/Error.jsx'
-import Blog from './routes/Blog.jsx'
+import {Error} from './routes/Error'
+import Blog from './routes/Blog'
 
 
 

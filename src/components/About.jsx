@@ -1,7 +1,7 @@
 import React from "react";
 
 import engineerDesign from '../../public/images/homepage/engineerDesign.png'
-import PyCode from './PyCode.jsx'
+import PyCode from './PyCode'
 import squiggly from '../../public/images/homepage/squiggly.png' 
 
 export default function About() {
