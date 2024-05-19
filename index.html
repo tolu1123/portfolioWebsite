@@ -36,18 +36,53 @@
       >
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-    <!-- This is for the email service we are employing -->
-    <!-- <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+
+    <!-- The loader animation -->
+    <div class="loading-animation w-full h-screen flex items-center justify-center">
+
+      <div class="relative w-[180px] h-[180px] flex items-center justify-center">
+        <!-- The pinging animation element -->
+        <div class="animate-ping absolute inline-flex h-full w-full rounded-full bg-borderRose opacity-75"></div>
+
+        <div class="relative w-[180px] h-[180px] bg-white rounded-full flex items-center justify-center">
+
+          <h4 class="loader-logo absolute yellowtail-regular flex items-center">
+            <span class="text-5xl">Ridone<sup class="text-xs">TM</sup></span>
+          </h4>
+
+          <h4 class="loader-logo absolute yellowtail-regular flex items-center text-white">
+            <span class="text-5xl">Ridone<sup class="text-xs">TM</sup></span>
+          </h4>
+
+        </div>
+      </div>
+
+    </div>
+
+    <style>
+        .loader-logo:nth-child(1) {
+          color: transparent;
+          -webkit-text-stroke: 1.5px rgb(255, 140, 146);
+        }
+    </style>
+
+    <div class="hidden" id="root"></div>
+    <!-- The script to remove the hidden class from the div with the class root -->
+    <script>
+
+      const divRoot = document.querySelector('#root');
+      const loadingAnimation = document.querySelector('.loading-animation')
+      window.addEventListener('load', () => {
+        
+        setTimeout(() => {
+          // We are going to hide the loading-animation
+          loadingAnimation.classList.add('hidden');
+
+          // We are then going to remove the hidden class
+          divRoot.classList.remove('hidden');
+        }, 2500);
+      })
     </script>
-    <script type="text/javascript">
-      (function(){
-          emailjs.init({
-            publicKey: "glr-5Ww6naWCJp7EJ",
-          });
-      })();
-    </script> -->
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useState,useRef, useEffect} from 'react';
 import emailjs from '@emailjs/browser';
 
 import squiggly from '../../public/images/hireMe/squiggly1x.png'
@@ -9,8 +9,32 @@ export default function HireMe() {
 
     const form = useRef(null);
 
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(false);
+
+    // Creating states for our controlled components
+    const [username, setUserName] = useState('');
+    const [organization, setOrganization] = useState('');
+    const [email,setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    const [contactNumber, setContactNumber] = useState(0)
+
+    useEffect(() => {
+        // After 10 seconds
+        let contactRotor = setInterval(() => {
+            let val = Math.random();
+            setContactNumber(Math.ceil(val * 1000000));
+            console.log(val, contactNumber)
+        }, 10000)
+
+
+        return () => clearInterval(contactRotor)
+    }, [contactNumber])
+
     const sendEmail = (e) => {
         e.preventDefault();
+
+        
 
         emailjs
         .sendForm('contact_service', 'contact_form', form.current, {
@@ -18,13 +42,37 @@ export default function HireMe() {
         })
         .then(
             () => {
-            console.log('SUCCESS!');
+                console.log('SUCCESS!');
+                clearInput()
+
+                // set the success state to true
+                setSuccess(true);
+                // Set the sucess state to false after 3 seconds
+                setTimeout(() => {
+                    setSuccess(false);      
+                }, 3000)
+
             },
             (error) => {
-            console.log('FAILED...', error.text);
+                console.log('FAILED...', error.text);
+                setError(true);
+                // Set the error state to false after 5 seconds
+                setTimeout(() => {
+                    setError(false);
+                }, 5000)
             },
         );
+        // Reset the form after submission
+        form.current.reset();
     };
+
+    function clearInput() {
+        // Clear the inputs on submitting the form
+        setUserName('');
+        setOrganization('');
+        setEmail('');
+        setMessage('');
+    }
 
 
 
@@ -55,19 +103,23 @@ export default function HireMe() {
                         <input 
                         type="hidden" 
                         name="contact_number" 
-                        value="697483" 
+                        value={contactNumber} 
                         className='hidden'
                         />
                         {/* The name of the person that wants to connect with me */}
                         <div className="col-span-1 relative flex flex-col items-center mb-4 lg:mb-5">
 
                             <input 
-                            type="text" 
+                            type="text"
                             name="user_name" 
                             id="user_name"
                             required
                             focus="true"
-                            className='peer w-full h-[40px] bg-transparent border-b-[1.5px] border-solid border-borderRose outline-0 '
+                            value={username}
+                            onChange={(e) => {
+                                setUserName(e.target.value)
+                            }}
+                            className='peer w-full h-[40px] !bg-highlightBrown border-b-[1.5px] border-solid border-borderRose outline-0 '
                             />
 
                             <label 
@@ -84,8 +136,12 @@ export default function HireMe() {
                             type="text" 
                             name="user_organization" 
                             id="user_organization"
+                            value={organization}
+                            onChange={(e) => {
+                                setOrganization(e.target.value)
+                            }}
                             required
-                            className='peer w-full h-[40px] bg-transparent border-b-[1.5px] border-solid border-borderRose outline-0 '
+                            className='peer w-full h-[40px] !bg-highlightBrown border-b-[1.5px] border-solid border-borderRose outline-0 '
                             />
 
                             <label 
@@ -102,7 +158,11 @@ export default function HireMe() {
                             name="user_email" 
                             id="user_email"
                             required
-                            className='peer w-full h-[40px] bg-transparent border-b-[1.5px] border-solid border-borderRose outline-0 '
+                            value={email}
+                            onChange={e => {
+                                setEmail(e.target.value)
+                            }}
+                            className='peer w-full h-[40px] !bg-highlightBrown border-b-[1.5px] border-solid border-borderRose outline-0 '
                             />
 
                             <label 
@@ -125,8 +185,24 @@ export default function HireMe() {
                             <textarea 
                             name="message" 
                             id="message" 
-                            className='resize-y w-full bg-transparent border-b-[1.5px] border-solid border-borderRose outline-0 py-0.5'
+                            value={message}
+                            onChange={e => {
+                                setMessage(e.target.value)
+                            }}
+                            className='resize-y w-full !bg-highlightBrown border-b-[1.5px] border-solid border-borderRose outline-0 py-0.5'
                             />
+                        </div>
+                        {/* the message Div */}
+                        <div className="data col-span-1 lg:col-span-2 ">
+                            {/* Sucessful response */}
+                            {success && <p className="inter-regular text-sm text-borderRose">
+                                Your response has been submitted, I will get back to you soon.
+                            </p>}
+
+                            {/* Unsucessful Response */}
+                            {error && <p className="inter-regular text-sm text-borderRose ">
+                                There was an error submitting your response, please try again.
+                            </p>}
                         </div>
 
 

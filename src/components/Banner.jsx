@@ -1,11 +1,11 @@
 import React, {useState, useEffect, useRef} from "react";
 
-// import the logo from the public folder
-import logo from '../../public/images/logo/logo4x.png'
-import msgIcon from '../../public/images/logo/chat3x.png'
-import heroImg from '../../public/images/banner/heroImg.png'
 
+import heroImg from '../../public/images/banner/heroImg.png'
 import cv from '../../public/docs/Ridwan_Amokun_CV.pdf'
+
+
+import Header from "./Header";
 
 
 
@@ -15,17 +15,8 @@ export default function Banner() {
     let role = useRef(false);
     let color;
 
-    const [navSm, setNavSm] = useState(false);
-    const [highlightColor, setHighlightColor] = useState('#FF8C92');
     
-
-    function navChecker() {
-        if(window.innerWidth >= 640) {
-            // I want to reset some state that will make the navbar show normally
-            // We will set the navSm state to be true when we resize to more than 640px
-            setNavSm(true);
-        }
-    }
+    const [highlightColor, setHighlightColor] = useState('#FF8C92');
 
     async function typeSentence(sentence, eleRef, delay = 300) {
         eleRef.textContent = '';
@@ -63,9 +54,7 @@ export default function Banner() {
 
 
     useEffect(() => {
-        if(window.innerWidth >= 640) {
-            setNavSm(true)
-        }
+        // This functionn allows the typing animation on the homepage
         const carouselText = [
             {text: "ML Engineer", color: "red"},
             {text: "Mechanical Engr", color: "orange"},
@@ -88,99 +77,13 @@ export default function Banner() {
         carousel(carouselText, role.current)
           
 
-        window.addEventListener('resize', navChecker);
-
-        return () => {
-            window.removeEventListener('resize', navChecker)
-        }
+        
     },[])
 
     return (
-        <div className="banner flex flex-col w-full min-h-screen max-h-[900px] bg-cover">
-            {/* The header */}
-            <header 
-            className="w-full max-w-[1400px] mx-auto px-5 py-5 flex flex-row justify-between items-center"
+        <div id="banner" className="banner flex flex-col w-full min-h-screen max-h-[900px] bg-cover">
             
-            >
-                {/* The logo for he website */}
-                <h1 className="logo yellowtail-regular flex items-center">
-                    <img src={logo} alt="Logo" width='40px' height='40' />
-                    <span className="text-2xl">Ridone<sup className="text-xs">TM</sup></span>
-                </h1>
-
-                {/* The nav with the nested dropdown */}
-                <nav>
-                    {/* The container for the ham button which will be displayed on small screens */}
-
-                    <div 
-                    className="ham sm:hidden text-3xl"
-                    onClick={() => {
-                        if (window.innerWidth < 640) {
-                            setNavSm(prevState => !prevState)
-                        }
-                    }}
-                    >
-                        {/* The hamburger and close icon that gets closed depending on the state */}
-                        {
-                            navSm ? 
-                            <i className="fa-light fa-xmark"></i> 
-                            : <i className="fa-light fa-bars"></i>
-                        }
-                    </div>
-
-                    {/* The list dropdown */}
-                    {navSm && <ul className="bg-white/50 sm:bg-transparent sm:backdrop-blur-none backdrop-blur-md flex flex-col absolute top-16 right-2 w-fit h-fit text-base p-5 sm:p-0  sm:static sm:flex-row items-center justify-around gap-5 inter-regular shadow-lg sm:shadow-none leading-[160%] text-darkGreen">
-                        <a  
-                        className="no-underline"
-                        href="#aboutme">
-                            <li 
-                            className="hover:font-medium">
-                                About Me
-                            </li>
-                        </a>
-
-                        <a  
-                        className="no-underline"
-                        href="#works">
-                            <li 
-                            className="hover:font-medium">
-                                Works
-                            </li>
-                        </a>
-
-                        <a  
-                        className="no-underline"
-                        href="#blog">
-                            <li
-                            className="hover:font-medium"
-                            >
-                                Blog
-                            </li>
-                        </a>
-
-                        <a  
-                        className="no-underline"
-                        href="#resume">
-                            <li 
-                            className="hover:font-medium">
-                            Resume
-                            </li>
-                        </a>
-
-                        <a  
-                        className="no-underline"
-                        href="https://wa.link/fh7d89">
-                            <li 
-                            className="sm:bg-white flex justify-between items-center gap-1 p-0 sm:py-2 sm:px-4 sm:rounded-full hover:font-medium">
-                                <span className="">Let's Chat</span>
-                                {/*The message icon */}
-                                <img src={msgIcon} alt="Message Icon" width='20px' height='20px' />
-                            </li>
-                        </a>
-                    </ul>}
-                </nav>
-
-            </header>
+            <Header root={true} />
 
             {/* The Main contents of the Banner */}
             <main className='w-full max-w-[1400px] mx-auto px-5 flex flex-col-reverse items-center justify-center lg:flex-row grow'>

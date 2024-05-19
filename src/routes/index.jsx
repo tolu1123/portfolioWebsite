@@ -1,4 +1,6 @@
-import React from 'react'
+import React, {useEffect,useContext} from 'react'
+
+import {LinkContext} from '../main'
 
 // We will import our needed components
 import Banner from '../components/Banner'
@@ -14,19 +16,29 @@ import Footer from '../components/Footer'
 
 
 function Index() {
+
+    //  This received context enables our header to be reusable and at the same time navigates from several other pages to some sections in this page.
+    const {linkValue} = useContext(LinkContext);
+    useEffect(() => {
+        if(linkValue !== ' ') {
+            window.location.href = `#${linkValue}`;
+        }
+    }, [linkValue])
+
     return (
-        <>
-            <Banner />
-            <About />
-            <Works />
-            <PeopleSay />
-            <Connect />
-            <Skills />
-            <Roles />
-            <Blog />
-            <HireMe />
-            <Footer />
-        </>
+                <>
+                    <Banner />
+                    <About />
+                    <Works />
+                    <PeopleSay />
+                    <Connect />
+                    <Skills />
+                    <Roles />
+                    <Blog />
+                    <HireMe />
+                    <Footer />
+                </>
+             
     )
 }
 

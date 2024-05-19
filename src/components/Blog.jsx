@@ -25,7 +25,7 @@ export default function Blog() {
                 </div>
 
                 {/* The block of blogs */}
-                <div className="blogBlock w-full flex flex-col sm:flex-row gap-6 sm:gap-10 sm:px-4 lg:px-12">
+                <div className="blogBlock w-full flex flex-col sm:flex-row gap-6 sm:gap-10 sm:px-4 lg:px-20">
 
                     <div className="sm:w-1/2 bg-white pt-8 pb-12 px-8 rounded-3xl">
                         {/* The div for the image */}
@@ -144,17 +144,23 @@ export default function Blog() {
                     className='absolute z-0 aspect-[31/20]' 
                     />
 
-                    <button
-                    type='button'
-                    className='flex items-center justify-center gap-1 z-[1] inter-medium text-lg text-darkGreen leading-[160%]'
+                    <a 
+                    href='./blog'
+                    // We are adding the aspect-ratio to cover the background image.
+                    className='z-[1] width-[165px] aspect-[31/20] flex items-center justify-center'
                     >
-                        <img 
-                        src={pin}
-                        width='23.32'
-                        className='aspect-[35/34]' 
-                        alt="" />
-                        <span>More Blog</span>
-                    </button>
+                        <button
+                        type='button'
+                        className='flex items-center justify-center gap-1 inter-medium text-lg text-darkGreen leading-[160%]'
+                        >
+                            <img 
+                            src={pin}
+                            width='23.32'
+                            className='aspect-[35/34]' 
+                            alt="" />
+                            <span>More Blog</span>
+                        </button>
+                    </a>
 
                 </div>
 

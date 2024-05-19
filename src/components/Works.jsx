@@ -59,7 +59,9 @@ export default function Works() {
             <div className="flex justify-center">
                 <a
                 className="inline-block rounded-full bg-darkGreen text-white shadow-sm transition-all duration-200 ease-linear hover:shadow-white px-10 py-4 hover:bg-white hover:text-darkGreen sm:hover:hover:shadow-darkGreen/70 inter-medium text-base" 
-                href="https://wa.link/fh7d89">
+                href="https://wa.link/x7bv5p"
+                target="_blank"
+                >
                     Contact Me
                 </a>
             </div>

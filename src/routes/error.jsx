@@ -1,8 +1,16 @@
 import React from "react";
 
+import ErrorBanner from "../components/ErrorBanner";
+import Footer from '../components/Footer'
+
 function Error() {
+
+
     return (
-        <h1>Error</h1>
+        <>
+            <ErrorBanner />
+            <Footer />
+        </>
     )
 }
 export {Error}
