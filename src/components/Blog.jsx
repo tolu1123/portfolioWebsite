@@ -1,9 +1,12 @@
 import React from 'react';
+import {useNavigate} from 'react-router-dom'
 
 import blogButtonBG from '../../public/images/blog/blogButtonBG.png'
 import pin from '../../public/images/blog/pin-icon.svg'
 
 export default function Blog() {
+    const navigate = useNavigate();
+
     return (
         <div className='blog w-full'>
         
@@ -145,9 +148,12 @@ export default function Blog() {
                     />
 
                     <a 
-                    href='./blog'
+                    // href='./blog'
                     // We are adding the aspect-ratio to cover the background image.
                     className='z-[1] width-[165px] aspect-[31/20] flex items-center justify-center'
+                    onClick={() => {
+                        navigate('./blog')
+                    }}
                     >
                         <button
                         type='button'
