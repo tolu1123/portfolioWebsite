@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon/favicon0.75x.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ridwan Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Yellowtail&display=swap" rel="stylesheet">
+    <!-- The link for fontawesome -->
+    <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-thin.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-solid.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-regular.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-light.css"
+      >
+    <script type="module" crossorigin src="/assets/index-d_T_Cm7b.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DQK2kk0R.css">
+  </head>
+  <body>
+
+    <!-- The loader animation -->
+    <div class="loading-animation w-full h-screen flex items-center justify-center">
+
+      <div class="relative w-[180px] h-[180px] flex items-center justify-center">
+        <!-- The pinging animation element -->
+        <div class="animate-ping absolute inline-flex h-full w-full rounded-full bg-borderRose opacity-75"></div>
+
+        <div class="relative w-[180px] h-[180px] bg-white rounded-full flex items-center justify-center">
+
+          <h4 class="loader-logo absolute yellowtail-regular flex items-center">
+            <span class="text-5xl">Ridone<sup class="text-xs">TM</sup></span>
+          </h4>
+
+          <h4 class="loader-logo absolute yellowtail-regular flex items-center text-white">
+            <span class="text-5xl">Ridone<sup class="text-xs">TM</sup></span>
+          </h4>
+
+        </div>
+      </div>
+
+    </div>
+
+    <style>
+        .loader-logo:nth-child(1) {
+          color: transparent;
+          -webkit-text-stroke: 1.5px rgb(255, 140, 146);
+        }
+    </style>
+
+    <div class="hidden" id="root"></div>
+    <!-- The script to remove the hidden class from the div with the class root -->
+    <script>
+
+      const divRoot = document.querySelector('#root');
+      const loadingAnimation = document.querySelector('.loading-animation')
+      window.addEventListener('load', () => {
+        
+        setTimeout(() => {
+          // We are going to hide the loading-animation
+          loadingAnimation.classList.add('hidden');
+
+          // We are then going to remove the hidden class
+          divRoot.classList.remove('hidden');
+        }, 2500);
+      })
+    </script>
+  </body>
+</html>
